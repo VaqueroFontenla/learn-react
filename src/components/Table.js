@@ -7,6 +7,7 @@ import Card from './Card';
 import Sort from './Sort';
 
 import PropTypes from 'prop-types';
+import CONSTANS from '../constants/constants';
 
 
 
@@ -57,64 +58,54 @@ class Table extends Component {
 
         return (
             <div className="table">
-                <div className="table-header">
-                    <div className="dropdown">
-                        <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Ordenar por
-                        </button>
-                        <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                            <span className="dropdown-item">
-                                <Sort
-                                    sortKey={'TITLE'}
-                                    onSort={this.onSort}
-                                    activeSortKey={sortKey}
-                                >
-                                    Título
-                                </Sort>
-                            </span>
-                            <span className="dropdown-item">
-                                <Sort
-                                    sortKey={'AUTHOR'}
-                                    onSort={this.onSort}
-                                    activeSortKey={sortKey}
-                                >
-                                    Autor
-                                </Sort>
-                            </span>
-                            <span className="dropdown-item">
-                                <Sort
-                                    sortKey={'COMMENTS'}
-                                    onSort={this.onSort}
-                                    activeSortKey={sortKey}
-                                >
-                                    Comentarios
-                                </Sort>
-                            </span>
-                            <span className="dropdown-item">
-                                <Sort
-                                    sortKey={'POINTS'}
-                                    onSort={this.onSort}
-                                    activeSortKey={sortKey}
-                                >
-                                    Puntos
-                                </Sort>
-                            </span>
-
-                        </div>
+                <div className="btn-group mb-3" role="group" aria-label="Sort by">
+                    <div className={CONSTANS.CLASSNAME_PRIMARY}>
+                        <Sort
+                            sortKey={'TITLE'}
+                            onSort={this.onSort}
+                            activeSortKey={sortKey}
+                        >
+                            Título
+                        </Sort>
+                    </div>
+                    <div className={CONSTANS.CLASSNAME_PRIMARY}>
+                        <Sort
+                            sortKey={'AUTHOR'}
+                            onSort={this.onSort}
+                            activeSortKey={sortKey}
+                        >
+                            Autor
+                        </Sort>
+                    </div>
+                    <div className={CONSTANS.CLASSNAME_PRIMARY}>
+                        <Sort
+                            sortKey={'COMMENTS'}
+                            onSort={this.onSort}
+                            activeSortKey={sortKey}
+                        >
+                            Comentarios
+                        </Sort>
+                    </div>
+                    <div className={CONSTANS.CLASSNAME_OUTLINE_PRIMARY}>
+                        <Sort
+                            sortKey={'POINTS'}
+                            onSort={this.onSort}
+                            activeSortKey={sortKey}
+                        >
+                            Puntos
+                        </Sort>
                     </div>
                 </div>
-                <div className="container-fluid">
-                    <div className="row">
-                        {reverseSortedList.map(item =>
-                            <Card
-                                toLink={toLink}
-                                onDismiss={onDismiss}
-                                item={item} />
-                        )}
-                    </div>
+                <div className="row">
+                    {reverseSortedList.map(item =>
+                        <Card
+                            key={item.objectID}
+                            toLink={toLink}
+                            onDismiss={onDismiss}
+                            item={item} />
+                    )}
                 </div>
             </div>
-
         );
     }
 }

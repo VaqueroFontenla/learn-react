@@ -38,7 +38,7 @@ class App extends Component {
 		this.setSearchStories = this.setSearchStories.bind(this);
 	}
 
-  // Llamar a la API
+	// Llamar a la API
 	onFetchSearchStories(currentFilterValue, page, currentHitsPerPage) {
 		this.setState({ isLoading: true });
 		FetchSearchStories(currentFilterValue, page, currentHitsPerPage)
@@ -63,21 +63,21 @@ class App extends Component {
 		const updatedHits = hits.filter(item => item.objectID !== id);
 
 		this.setState({
-		results: {
-			...results,
-			[searchKey]: { hits: updatedHits, page }
-		}
+			results: {
+				...results,
+				[searchKey]: { hits: updatedHits, page }
+			}
 		});
 	}
 
 	toLink(url) {
-		window.location.href= url;
+		window.location.href = url;
 	}
 
 
 	onChangeFilter(event) {
 		this.setState({
-		currentFilterValue: event.target.value
+			currentFilterValue: event.target.value
 		})
 	}
 
@@ -85,8 +85,8 @@ class App extends Component {
 		event.preventDefault();
 		const { currentFilterValue, currentPage, currentHitsPerPage } = this.state;
 		this.setState({
-		currentFilterValue: event.target.value,
-		searchKey: currentFilterValue,
+			currentFilterValue: event.target.value,
+			searchKey: currentFilterValue,
 		})
 		this.onFetchSearchStories(currentFilterValue, currentPage, currentHitsPerPage);
 	}
@@ -95,7 +95,7 @@ class App extends Component {
 		event.preventDefault();
 		const { currentFilterValue, currentPage, currentHitsPerPage } = this.state;
 		this.setState({
-		currentPage: page + 1
+			currentPage: page + 1
 		})
 		this.onFetchSearchStories(currentFilterValue, currentPage, currentHitsPerPage)
 	}
@@ -124,36 +124,38 @@ class App extends Component {
 
 		return (
 			<div className="container-fluid">
-
-				<div className="row">
-					<Search
-						value={currentFilterValue}
-						onChangeFilter={this.onChangeFilter}
-						onSubmit={this.onSearchSubmit}
-					>
-						Search
-					</Search>
-				</div>
-				<div className="row">
-					{error
-					? <div className="interactions">
-						<p>Something went wrong.</p>
+				<div className="col-12 d-flex flex-column justify-content-center align-items-center mt-5">
+					<div className="row">
+						<Search
+							value={currentFilterValue}
+							onChangeFilter={this.onChangeFilter}
+							onSubmit={this.onSearchSubmit}
+						>
+							Search
+						</Search>
 					</div>
-					: <Table
-						list={list}
-						toLink={this.toLink}
-						onDismiss={this.onDismiss} />
-					}
-				</div>
-				<div className="interactions">
-					<ButtonWithLoading
-					   	className={CONSTANS.CLASSNAME_PRIMARY}
-						isLoading={isLoading}
-						onClick={() => this.onFetchSearchStories(searchKey, page + 1, currentHitsPerPage)}
-					>
-						More
+					<div className="row">
+						{error
+							? <div className="interactions">
+								<p>Something went wrong.</p>
+							</div>
+							: <Table
+								list={list}
+								toLink={this.toLink}
+								onDismiss={this.onDismiss} />
+						}
+					</div>
+					<div className="row">
+						<ButtonWithLoading
+							className={CONSTANS.CLASSNAME_SECONDARY_LG}
+							isLoading={isLoading}
+							onClick={() => this.onFetchSearchStories(searchKey, page + 1, currentHitsPerPage)}
+						>
+							More
 					</ButtonWithLoading>
+					</div>
 				</div>
+
 			</div>
 		);
 	}

@@ -2,64 +2,112 @@
 
 exports[`App snapshots 1`] = `
 <div
-  className="page"
+  className="container-fluid"
 >
   <div
-    className="interactions"
+    className="col-12 d-flex flex-column justify-content-center align-items-center mt-5"
   >
-    <form
-      onSubmit={[Function]}
+    <div
+      className="row"
     >
-      &gt;
-      Search
-      <input
-        onChange={[Function]}
-        type="text"
-      />
-      <button
-        type="submit"
+      <form
+        onSubmit={[Function]}
       >
-        Search
-      </button>
-    </form>
-  </div>
-  <div
-    className="table"
-  />
-  <div
-    className="interactions"
-  >
-    <button
-      className=""
-      onClick={[Function]}
-      type="button"
+        <div
+          className="input-group  input-group-lg mb-3"
+        >
+          <input
+            aria-label="Search by title or author"
+            className="form-control"
+            onChange={[Function]}
+            type="text"
+          />
+          <div
+            className="input-group-append"
+          >
+            <button
+              className="btn btn-outline-primary"
+              id="button-addon2"
+              onClick={[Function]}
+              selected={true}
+              type="button"
+            >
+              Search
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div
+      className="row"
     >
-      More
-    </button>
+      <div
+        className="table"
+      >
+        <div
+          aria-label="Sort by"
+          className="btn-group mb-3"
+          role="group"
+        >
+          <div
+            className="btn btn-primary"
+          >
+            <button
+              className="button-inline"
+              onClick={[Function]}
+              type="button"
+            >
+              Título
+            </button>
+          </div>
+          <div
+            className="btn btn-primary"
+          >
+            <button
+              className="button-inline"
+              onClick={[Function]}
+              type="button"
+            >
+              Autor
+            </button>
+          </div>
+          <div
+            className="btn btn-primary"
+          >
+            <button
+              className="button-inline"
+              onClick={[Function]}
+              type="button"
+            >
+              Comentarios
+            </button>
+          </div>
+          <div
+            className="btn btn-outline-primary"
+          >
+            <button
+              className="button-inline"
+              onClick={[Function]}
+              type="button"
+            >
+              Puntos
+            </button>
+          </div>
+        </div>
+        <div
+          className="row"
+        />
+      </div>
+    </div>
+    <div
+      className="row"
+    >
+      <div>
+        <i
+          className="fa fa-sync fa-spin fa-10x"
+        />
+      </div>
+    </div>
   </div>
 </div>
-`;
-
-exports[`Button snapshots 1`] = `
-<button
-  className=""
-  type="button"
->
-  Give Me More
-</button>
-`;
-
-exports[`Search snapshots 1`] = `
-<form>
-  &gt;
-  Search
-  <input
-    type="text"
-  />
-  <button
-    type="submit"
-  >
-    Search
-  </button>
-</form>
 `;

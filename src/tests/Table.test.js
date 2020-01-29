@@ -15,27 +15,27 @@ describe('Table', () => {
     };
 
     // Jest
-    // it('renders', () => {
-    //     const div = document.createElement('div');
-    //     ReactDOM.render(<Table {...props} />, div);
-    // });
+    it('renders', () => {
+        const div = document.createElement('div');
+        ReactDOM.render(<Table {...props} />, div);
+    });
 
-    // test('snapshots', () => {
-    //     const component = renderer.create(
-    //         <Table {...props} />
-    //     );
-    //     let tree = component.toJSON();
-    //     expect(tree).toMatchSnapshot();
-    // });
+    test('snapshots', () => {
+        const component = renderer.create(
+            <Table {...props} />
+        );
+        let tree = component.toJSON();
+        expect(tree).toMatchSnapshot();
+    });
 
     //Enzyme
 
-    it('shows two items in list', () => {
-        const element = shallow(
-            <Table {...props} />
-        );
+    // it('shows two items in list', () => {
+    //     const element = shallow(
+    //         <Table {...props} />
+    //     );
 
-        expect(element.find('.table-row').length).toBe(2);
-    });
+    //     expect(element.find('.table-row').length).toBe(2);
+    // });
 
 });

@@ -1,8 +1,9 @@
 
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+//CONSTANS
+import CONSTANS from '../constants/constants.js';
 
-import '../stylesheets/Search.css';
+import PropTypes from 'prop-types';
 
 // Componente funcional
 // const Search = ({
@@ -40,22 +41,25 @@ class Search extends Component {
     render() {
         const { currentFilterValue, onChangeFilter, children, onSubmit } = this.props;
         return (
-            <form onSubmit={onSubmit}>>
-                 {children}
-                <input
-                    type="text"
-                    value={currentFilterValue}
-                    onChange={onChangeFilter}
-                    ref={el => this.input = el}
-                />
-                <button type="submit">
-                    {children}
-                </button>
+            <form onSubmit={onSubmit}>
+                <div className="input-group  input-group-lg mb-3">
+                    <input type="text"
+                        className="form-control"
+                        aria-label="Search by title or author"
+                        value={currentFilterValue}
+                        onChange={onChangeFilter}
+                        ref={el => this.input = el}
+                    />
+                    <div className="input-group-append">
+                        <button className={CONSTANS.CLASSNAME_OUTLINE_PRIMARY} type="button" selected id="button-addon2" onClick={onSubmit}>{children}</button>
+                    </div>
+                </div>
             </form>
 
         );
     }
 }
+
 
 Search.propTypes = {
     currentFilterValue: PropTypes.string,

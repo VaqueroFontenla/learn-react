@@ -30,8 +30,8 @@ class Card extends Component {
         } = this.props
 
         return (
-            <div className="col-md-3">
-                <div key={item.objectID} className="card mb-4">
+            <div  className="col-md-2">
+                <div  className="card mb-4">
                     <div className="card-body">
                         <h5 className="card-title">{item.title}</h5>
                         <h6 className="card-subtitle mb-2 text-muted">{item.author}</h6>
@@ -43,8 +43,16 @@ class Card extends Component {
                             <span className="card-text mb-2"><b>Fecha:  </b></span>
                             <span className="card-text mb-2">{this.transformDate(item.created_at)}</span>
                         </div>
-                        <div className="d-flex justify-content-between">
-                            {item._tags.map((tag, index) => <span key={index} className="badge badge-secondary">{tag}</span>)}
+                        <div className="d-flex justify-content-between mb-2">
+                            {item._tags.map(tag => <span key={tag}className="badge badge-secondary">{tag}</span>)}
+                        </div>
+                        <div className="d-flex">
+                            <span className="card-text mb-2"><b>Número de comentarios:  </b></span>
+                            <span className="card-text mb-2">{item.num_comments}</span>
+                        </div>
+                        <div className="d-flex">
+                            <span className="card-text mb-2"><b>Puntos:  </b></span>
+                            <span className="card-text mb-2">{item.points}</span>
                         </div>
                     </div>
                     <div className="d-flex justify-content-between p-3">
@@ -77,8 +85,8 @@ Card.propTypes = {
         created_at: PropTypes.string,
         tags: PropTypes.array,
     }).isRequired,
-    onDismiss: PropTypes.func.isRequired,
-    toLink: PropTypes.func.isRequired,
+    onDismiss: PropTypes.func,
+    toLink: PropTypes.func,
 };
 
 export default Card;

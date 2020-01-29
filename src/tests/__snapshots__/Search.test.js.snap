@@ -1,65 +1,27 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`App snapshots 1`] = `
-<div
-  className="page"
->
+exports[`Search snapshots 1`] = `
+<form>
   <div
-    className="interactions"
+    className="input-group  input-group-lg mb-3"
   >
-    <form
-      onSubmit={[Function]}
+    <input
+      aria-label="Search by title or author"
+      className="form-control"
+      type="text"
+    />
+    <div
+      className="input-group-append"
     >
-      &gt;
-      Search
-      <input
-        onChange={[Function]}
-        type="text"
-      />
       <button
-        type="submit"
+        className="btn btn-outline-primary"
+        id="button-addon2"
+        selected={true}
+        type="button"
       >
         Search
       </button>
-    </form>
+    </div>
   </div>
-  <div
-    className="table"
-  />
-  <div
-    className="interactions"
-  >
-    <button
-      className=""
-      onClick={[Function]}
-      type="button"
-    >
-      More
-    </button>
-  </div>
-</div>
-`;
-
-exports[`Button snapshots 1`] = `
-<button
-  className=""
-  type="button"
->
-  Give Me More
-</button>
-`;
-
-exports[`Search snapshots 1`] = `
-<form>
-  &gt;
-  Search
-  <input
-    type="text"
-  />
-  <button
-    type="submit"
-  >
-    Search
-  </button>
 </form>
 `;

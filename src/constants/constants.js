@@ -15,7 +15,7 @@ const CONSTANS = {
     //ClassNames
     CLASSNAME_PRIMARY: 'btn btn-primary',
     CLASSNAME_OUTLINE_PRIMARY: 'btn btn-outline-primary',
-    CLASSNAME_SECONDARY_LG: 'btn btn-secondary-lg',
+    CLASSNAME_SECONDARY_LG: 'btn btn-secondary btn-lg',
 
 }
 
