@@ -44,7 +44,6 @@ class Table extends Component {
             isSortReverse,
         } = this.state
 
-
         const {
             list,
             toLink,
