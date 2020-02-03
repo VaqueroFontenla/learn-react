@@ -32,7 +32,11 @@ const App = () => {
 
 			try {
 				const result = await axios(makeUrl(currentFilterValue, currentPage, currentHitsPerPage));
-				setData(result.data.hits)
+				if (data.length > 0) {
+					setData(data.concat(result.data.hits))
+				} else {
+					setData(result.data.hits)
+				}
 
 			} catch (error) {
 				setError(true);

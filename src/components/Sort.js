@@ -7,7 +7,7 @@ const Sort = ({ sortKey, onSort, children }) => {
 
     return (
         <Button
-            claOs mando otro evento, por si Os mando otro evento, por si os interesa ssName={CONSTANS.CLASSNAME_OUTLINE_PRIMARY}
+            className={CONSTANS.CLASSNAME_OUTLINE_PRIMARY}
             onClick={() => onSort(sortKey)}
         >
             {children}
