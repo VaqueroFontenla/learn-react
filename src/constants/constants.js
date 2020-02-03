@@ -8,7 +8,7 @@ const CONSTANS = {
     PARAM_HPP : 'hitsPerPage=',
 
     // Default
-    DEFAULT_QUERY : '',
+    DEFAULT_QUERY : 'redux',
     DEFAULT_PAGE : 0,
     DEFAULT_HPP : '25',
 

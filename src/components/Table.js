@@ -1,112 +1,60 @@
 
-import React, { Component } from 'react';
-import { sortBy } from 'lodash';
+import React from 'react';
 
 //Components
 import Card from './Card';
 import Sort from './Sort';
 
 import PropTypes from 'prop-types';
-import CONSTANS from '../constants/constants';
 
 
-
-const SORTS = {
-    NONE: list => list,
-    TITLE: list => sortBy(list, 'title'),
-    AUTHOR: list => sortBy(list, 'author'),
-    COMMENTS: list => sortBy(list, 'num_comments').reverse(),
-    POINTS: list => sortBy(list, 'points').reverse(),
-};
-
-class Table extends Component {
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            sortKey: 'NONE',
-            isSortReverse: false,
-        };
-
-        this.onSort = this.onSort.bind(this);
-    }
-
-    onSort(sortKey) {
-        const isSortReverse = this.state.sortKey === sortKey && !this.state.isSortReverse;
-        this.setState({ sortKey, isSortReverse });
-    }
-
-
-    render() {
-
-        const {
-            sortKey,
-            isSortReverse,
-        } = this.state
-
-        const {
-            list,
-            toLink,
-            onDismiss
-        } = this.props
-
-        const sortedList = SORTS[sortKey](list);
-        const reverseSortedList = isSortReverse
-            ? sortedList.reverse()
-            : sortedList;
-
+const Table = ({list, onDismiss, onSort}) => {
         return (
             <div className="table">
                 <div className="btn-group mb-3" role="group" aria-label="Sort by">
-                    <div className={CONSTANS.CLASSNAME_PRIMARY}>
+                    <div >
                         <Sort
-                            sortKey={'TITLE'}
-                            onSort={this.onSort}
-                            activeSortKey={sortKey}
+                            sortKey={'title'}
+                            onSort={onSort}  
                         >
                             Título
                         </Sort>
                     </div>
-                    <div className={CONSTANS.CLASSNAME_PRIMARY}>
+                    <div >
                         <Sort
-                            sortKey={'AUTHOR'}
-                            onSort={this.onSort}
-                            activeSortKey={sortKey}
+                            sortKey={'author'}
+                            onSort={onSort}  
                         >
                             Autor
                         </Sort>
                     </div>
-                    <div className={CONSTANS.CLASSNAME_PRIMARY}>
+                    <div >
                         <Sort
-                            sortKey={'COMMENTS'}
-                            onSort={this.onSort}
-                            activeSortKey={sortKey}
+                            sortKey={'num_comments'}
+                            onSort={onSort}  
                         >
-                            Comentarios
+                            Número de comentarios
                         </Sort>
                     </div>
-                    <div className={CONSTANS.CLASSNAME_OUTLINE_PRIMARY}>
+                    <div >
                         <Sort
-                            sortKey={'POINTS'}
-                            onSort={this.onSort}
-                            activeSortKey={sortKey}
+                            sortKey={'points'}
+                            onSort={onSort}  
                         >
                             Puntos
                         </Sort>
                     </div>
                 </div>
                 <div className="row">
-                    {reverseSortedList.map(item =>
+                    {list.map(item =>
                         <Card
-                            key={item.objectID}
-                            toLink={toLink}
-                            onDismiss={onDismiss}
+                            onDismiss = {onDismiss}
                             item={item} />
                     )}
                 </div>
             </div>
         );
-    }
+    
 }
 
 
