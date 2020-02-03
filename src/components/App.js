@@ -42,7 +42,7 @@ const App = () => {
 		};
 
 		fechtData();
-	}, [searchKey,currentPage ]);
+	}, [searchKey, currentPage ]);
 
 
 	if (isLoading) {

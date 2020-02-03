@@ -6,14 +6,12 @@ import CONSTANS from '../constants/constants.js';
 
 const Card = ({ item, onDismiss }) => {
 
-
     const transformDate = (date) => {
         const newDate = new Date(date);
         const day = newDate.getDate();
-        const month = newDate.getMonth(); //January is 0 not 1
+        const month = newDate.getMonth()
         const year = newDate.getFullYear();
         const dateFormatted = day + "-" + (month + 1) + "-" + year;
-
         return dateFormatted;
     }
 
@@ -35,8 +33,8 @@ const Card = ({ item, onDismiss }) => {
                         <span className="card-text mb-2"><b>Fecha:  </b></span>
                         <span className="card-text mb-2">{transformDate(item.created_at)}</span>
                     </div>
-                    <div className="d-flex justify-content-between mb-2">
-                        {item._tags.map(tag => <span key={tag} className="badge badge-secondary">{tag}</span>)}
+                    <div className="d-flex flex-wrap justify-content-between">
+                        {item._tags.map(tag => <span key={tag} className="badge badge-secondary m-1">{tag}</span>)}
                     </div>
                     <div className="d-flex">
                         <span className="card-text mb-2"><b>Número de comentarios:  </b></span>
@@ -66,7 +64,6 @@ const Card = ({ item, onDismiss }) => {
 
     )
 }
-
 
 
 Card.propTypes = {
